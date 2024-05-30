@@ -1,14 +1,68 @@
-# 360-VSumm
-* from **A Human-Annotated Video Dataset for Training and Evaluation of 360-Degree Video Summarization Methods**
+# A Human-Annotated Video Dataset for Training and Evaluation of 360-Degree Video Summarization Methods
+* From **A Human-Annotated Video Dataset for Training and Evaluation of 360-Degree Video Summarization Methods** Proc. 1st Int. Workshop on Video for Immersive Experiences (Video4IMX-2024) at ACM IMX 2024, Stockholm, Sweden, June 2024.
 * Written by Ioannis Kontostathis, Evlampios Apostolidis, Vasileios Mezaris
-* This dataset can be used for training/evaluating deep-learning models for 360-degree video summarization.
+* This dataset can be used for training and evaluating deep-learning models for 360-degree video summarization.
+
+## Main dependencies
+The code for training and evaluating the utilized saliency detection models ([ATSal](https://github.com/mtliba/ATSal/tree/master), [SST-Sal](https://github.com/edurnebernal/SST-Sal)), was checked and verified on a `Windows 11` PC with an `NVIDIA GeForce GTX 1080Ti` GPU and an `i5-12600K` CPU. Main packages required:
+<div align="center">
+  <table>
+    <tr>
+      <th>Python</th>
+      <th>PyTorch</th>
+      <th>CUDA Version</th>
+      <th>cudatoolkit Version</th>
+      <th>Numpy</th>
+      <th>Opencv</th>
+      <th>imageio-ffmpeg</th>
+    </tr>
+    <tr>
+      <td>3.8</td>
+      <td>1.7.0</td>
+      <td>11.7</td>
+      <td>11.0.221</td>
+      <td>1.24.3</td>
+      <td>4.6.0</td>
+      <td>0.4.9</td>
+    </tr>
+  </table>
+</div>
+
+The code for training and evaluating the utilized video summarization model (saliency-aware variant of [CA-SUM](https://github.com/e-apostolidis/CA-SUM)), was checked and verified on an `Ubuntu 20.04.3` PC with an `NVIDIA RTX 2080Ti` GPU and an `i5-11500K` CPU. Main packages required:
+<div align="center">
+  <table>
+    <tr>
+      <th>Python</th>
+      <th>PyTorch</th>
+      <th>CUDA Version</th>
+      <th>cuDNN Version</th>
+      <th>TensorBoard</th>
+      <th>TensorFlow</th>
+      <th>Numpy</th>
+      <th>H5py</th>
+    </tr>
+    <tr>
+      <td>3.8(.8)</td>
+      <td>1.7.1</td>
+      <td>11.0</td>
+      <td>8005</td>
+      <td>2.4.0</td>
+      <td>2.4.1</td>
+      <td>1.20.2</td>
+      <td>2.10.0</td>
+    </tr>
+  </table>
+</div>
+
 ## Dataset
-The provided dataset contains 40 videos featuring diverse visual content, including sports games, short movies, documentaries and underwater activites, ranging from 1 to 4 minutes. The dataset was formulated based on the [VR-EyeTracking dataset](https://github.com/mtliba/ATSal/tree/master), where videos have been captured using both static and moving cameras. Ground-truth annotations are included for the fragments selected for summary, along with saliency scores for each frame. The dataset is available here
+The created dataset contains 40 2D-videos with diverse visual content (including sports games, short movies, documentaries and underwater activites) and a duration that ranges between 1 and 4 minutes. These videos were created by applying the 2D video production algorithm from [Kontostathis et al](https://github.com/IDT-ITI/CA-SUM-360) to 40 360-degrees videos from the [VR-EyeTracking dataset](https://github.com/mtliba/ATSal/tree/master), using the ground-truth saliency maps for the videos of the VR-EyeTraking dataset, that are publicly-available [here](https://mtliba.github.io/Reproduced-VR-EyeTracking/). Please note that for 2D video production, we set the parameters *t1* (intensity), *t2* (dbscan distance), *t3* (spatial distance) and *t4* (missing frame) of the algorithm, equal to *100*, *1.5*, *85* and *60*, respectively.
 
-## 2D Video production
-The 40 videos of the dataset was created using the 2D Video production algorithm of [Kontostathis et al](https://github.com/IDT-ITI/CA-SUM-360). We used the videos and ground-thruth saliency maps of the re-produced version of the VR-EyeTraking dataset, that is publicly-available [here](https://mtliba.github.io/Reproduced-VR-EyeTracking/). After applying the algorithm to the entire dataset, we ended up with 40 videos that meet the following criteria: dynamic and diverse visual content, with a duration longer than 1 minute. In contrast with Kontostathis et al, for the 2D Video production algorithm we set the parameters intensity *t1*, dbscan distance *t2*, spatial distance *t3* and missing frame *t4* to *100*, *1.5*, *85* and *60*, respectively. 
+Add info about ground-truth data (Lampis)
 
-## Annotator Software
+## Video summarization
+CA-SUM, PGL-SUM
+
+## Annotation Tool
 To assist annotators in their task, we implemented a graphical user interface tool which facilitates easy navigation throughout the video. Users can choose fragments for inclusion in the summary with simple clicks, while there is also an option to check the selected summary video separately, before choosing the final fragments. 
 
 The software was implemented in C# and the source code is available in the [Annotation_Tool](Annotation_Tool) directory. Visual Studio 2022 is needed to compile the source code.
@@ -24,6 +78,5 @@ This software is provided by the authors "as is" and any express or implied warr
 If you find our pruning method or pruned models useful in your work, please cite the following publication where this approach was proposed:
 
 # Acknowledgements
-This work was supported by the EU Horizon Europe and Horizon 2020 programmes under grant agreements 101070109 TransMIXR and 951911 AI4Media, respectively
-
+This work was supported by the EU's Horizon Europe and Horizon 2020 programmes under grant agreements 101070109 TransMIXR and 951911 AI4Media, respectively
 
