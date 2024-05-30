@@ -60,10 +60,7 @@ CA-SUM, PGL-SUM
 
 ## Annotation Tool
 To assist annotators in their task, we implemented a graphical user interface tool which facilitates easy navigation throughout the video. Users can choose fragments for inclusion in the summary with simple clicks, while there is also an option to check the selected summary video separately, before choosing the final fragments. 
-<div style="text-align:center">
-  <img src="annotationTool.png" alt="The graphical interface of the annotation tool" />
-  <p style="text-align:center"><em>Caption:The graphical interface of the annotation tool.</em></p>
-</div>
+
 <p align="center">
   <img src="annotationTool.png" alt="The graphical interface of the annotation tool" />
   <br><em>Caption: The graphical interface of the annotation tool.</em>
