@@ -60,7 +60,8 @@ CA-SUM, PGL-SUM
 
 ## Annotation Tool
 To assist annotators in their task, we implemented a graphical user interface tool which facilitates easy navigation throughout the video. Users can choose fragments for inclusion in the summary with simple clicks, while there is also an option to check the selected summary video separately, before choosing the final fragments. 
-![The graphical interface of the annotation tool](annotationTool.png)
+![The graphical interface of the annotation tool](annotationTool.png) 
+*The graphical interface of the annotation tool*
 The software was implemented in C# and the source code is available in the [Annotation_Tool](Annotation_Tool) directory. Visual Studio 2022 is needed to compile the source code.
 
 # Licence
