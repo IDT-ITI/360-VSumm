@@ -4,26 +4,22 @@
 * This dataset can be used for training and evaluating deep-learning models for 360-degree video summarization.
 
 ## Main dependencies
-The code for training and evaluating the utilized saliency detection models ([ATSal](https://github.com/mtliba/ATSal/tree/master), [SST-Sal](https://github.com/edurnebernal/SST-Sal)), was checked and verified on a `Windows 11` PC with an `NVIDIA GeForce GTX 1080Ti` GPU and an `i5-12600K` CPU. Main packages required:
+The code for the 2D Video production algorithm, was checked and verified on a `Windows 11` PC with an `NVIDIA GeForce GTX 1080Ti` GPU and an `i5-12600K` CPU. Main packages required:
 <div align="center">
   <table>
     <tr>
       <th>Python</th>
-      <th>PyTorch</th>
-      <th>CUDA Version</th>
-      <th>cudatoolkit Version</th>
       <th>Numpy</th>
       <th>Opencv</th>
-      <th>imageio-ffmpeg</th>
+      <th>Scipy</th>
+      <th>Scikit-learn</th>
     </tr>
     <tr>
       <td>3.8</td>
-      <td>1.7.0</td>
-      <td>11.7</td>
-      <td>11.0.221</td>
       <td>1.24.3</td>
       <td>4.6.0</td>
-      <td>0.4.9</td>
+      <td>1.8.1</td>
+      <td>1.2.2</td>
     </tr>
   </table>
 </div>
@@ -64,7 +60,7 @@ CA-SUM, PGL-SUM
 
 ## Annotation Tool
 To assist annotators in their task, we implemented a graphical user interface tool which facilitates easy navigation throughout the video. Users can choose fragments for inclusion in the summary with simple clicks, while there is also an option to check the selected summary video separately, before choosing the final fragments. 
-
+![Image](https://drive.google.com/file/d/1fxTn_GCsvp1ekMZBxZH1Oqze7me1v0Ia/view?usp=sharing)
 The software was implemented in C# and the source code is available in the [Annotation_Tool](Annotation_Tool) directory. Visual Studio 2022 is needed to compile the source code.
 
 # Licence
