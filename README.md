@@ -63,7 +63,7 @@ To assist annotators in their task, we implemented a graphical user interface to
 
 <p align="center">
   <img src="annotationTool.png" alt="The graphical interface of the annotation tool" />
-  <br><em>Caption: The graphical interface of the annotation tool.</em>
+  <br><em>The graphical interface of the annotation tool.</em>
 </p>
 The software was implemented in C# and the source code is available in the [Annotation_Tool](Annotation_Tool) directory. Visual Studio 2022 is needed to compile the source code.
 
