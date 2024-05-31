@@ -24,27 +24,25 @@ The code for the 2D Video production algorithm, was checked and verified on a `W
   </table>
 </div>
 
-The code for training and evaluating the utilized video summarization model (saliency-aware variant of [CA-SUM](https://github.com/e-apostolidis/CA-SUM)), was checked and verified on an `Ubuntu 20.04.3` PC with an `NVIDIA RTX 2080Ti` GPU and an `i5-11500K` CPU. Main packages required:
+The code for training and evaluating the utilized video summarization models ([PGL-SUM](https://github.com/e-apostolidis/PGL-SUM), [CA-SUM](https://github.com/e-apostolidis/CA-SUM) and their saliency-aware variants), was checked and verified on an `Ubuntu 20.04.6 LTS` PC with an `NVIDIA RTX 3090` GPU and an `i5-11600K` CPU. Main packages required:
 <div align="center">
   <table>
     <tr>
       <th>Python</th>
-      <th>PyTorch</th>
+      <th>Torch</th>
       <th>CUDA Version</th>
-      <th>cuDNN Version</th>
       <th>TensorBoard</th>
       <th>TensorFlow</th>
       <th>Numpy</th>
       <th>H5py</th>
     </tr>
     <tr>
-      <td>3.8(.8)</td>
-      <td>1.7.1</td>
-      <td>11.0</td>
-      <td>8005</td>
-      <td>2.4.0</td>
-      <td>2.4.1</td>
-      <td>1.20.2</td>
+      <td>3.8(.18)</td>
+      <td>2.1.2</td>
+      <td>11.8</td>
+      <td>2.12.1</td>
+      <td>2.3.0</td>
+      <td>1.24.4</td>
       <td>2.10.0</td>
     </tr>
   </table>
