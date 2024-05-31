@@ -51,9 +51,7 @@ The code for training and evaluating the utilized video summarization models ([P
 ## Dataset
 The created dataset contains 40 2D-videos with diverse visual content (including sports games, short movies, documentaries and underwater activites) and a duration that ranges between 1 and 4 minutes. These videos were created by applying the 2D video production algorithm from [Kontostathis et al](https://github.com/IDT-ITI/CA-SUM-360) to 40 360-degrees videos from the [VR-EyeTracking dataset](https://github.com/mtliba/ATSal/tree/master), using the ground-truth saliency maps for the videos of the VR-EyeTraking dataset, that are publicly-available [here](https://mtliba.github.io/Reproduced-VR-EyeTracking/). Please note that for 2D video production, we set the parameters *t1* (intensity), *t2* (dbscan distance), *t3* (spatial distance) and *t4* (missing frame) of the algorithm, equal to *100*, *1.5*, *85* and *60*, respectively.
 
-A structured h5 file with the video features and annotations of the SumMe and TVSum datasets are available within the data folder. The GoogleNet features of the video frames were extracted by Ke Zhang and Wei-Lun Chao and the h5 files were obtained from Kaiyang Zhou. These files have the following structure:
-
-To train the video summarization model, we used the created [360VideoSumm](https://github.com/IDT-ITI/CA-SUM-360/blob/main/data/Video-Summarization/360VideoSumm.h5). The associated HDF5 file has the following structure:
+To train and evaluate the video summarization models, we used the created [360VideoSumm](https://github.com/IDT-ITI/CA-SUM-360/blob/main/data/Video-Summarization/360VideoSumm.h5) file, which has the following structure:
 ```Text
 /key
     /change_points            2D-array with shape (num_segments, 2), where each row stores the indices of the starting and ending frame of a video segment
