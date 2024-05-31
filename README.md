@@ -51,7 +51,21 @@ The code for training and evaluating the utilized video summarization models ([P
 ## Dataset
 The created dataset contains 40 2D-videos with diverse visual content (including sports games, short movies, documentaries and underwater activites) and a duration that ranges between 1 and 4 minutes. These videos were created by applying the 2D video production algorithm from [Kontostathis et al](https://github.com/IDT-ITI/CA-SUM-360) to 40 360-degrees videos from the [VR-EyeTracking dataset](https://github.com/mtliba/ATSal/tree/master), using the ground-truth saliency maps for the videos of the VR-EyeTraking dataset, that are publicly-available [here](https://mtliba.github.io/Reproduced-VR-EyeTracking/). Please note that for 2D video production, we set the parameters *t1* (intensity), *t2* (dbscan distance), *t3* (spatial distance) and *t4* (missing frame) of the algorithm, equal to *100*, *1.5*, *85* and *60*, respectively.
 
-Add info about ground-truth data (Lampis)
+A structured h5 file with the video features and annotations of the SumMe and TVSum datasets are available within the data folder. The GoogleNet features of the video frames were extracted by Ke Zhang and Wei-Lun Chao and the h5 files were obtained from Kaiyang Zhou. These files have the following structure:
+
+To train the video summarization model, we used the created [360VideoSumm](https://github.com/IDT-ITI/CA-SUM-360/blob/main/data/Video-Summarization/360VideoSumm.h5). The associated HDF5 file has the following structure:
+```Text
+/key
+    /change_points            2D-array with shape (num_segments, 2), where each row stores the indices of the starting and ending frame of a video segment
+    /features                 2D-array with shape (n_steps, 1024), where each row stores the feature vector of the relevant video frame (GoogleNet features)
+    /gtscore                  1D-array with shape (n_frames, 1), where each row contains a value indicating the importance of the corresponding video frame according to the users' annotations (after averaging them)
+    /n_frames                 number of video frames
+    /n_steps                  number of sampled frames
+    /picks                    1D-array with shape (n_steps, 1) with the indices of the sampled frames
+    /saliency scores          1D-array with shape (n_steps, 1) with the computed saliency scores for the sampled frames
+    /user_summary             2D-array with shape (15, n_frames), where each row is a binary vector indicating the frames of the video that selected (value=1) or not (value=0) for inclusion in the summary by each human annotator
+```
+</div>
 
 ## Video summarization
 CA-SUM, PGL-SUM
