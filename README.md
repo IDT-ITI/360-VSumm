@@ -66,7 +66,7 @@ To train and evaluate the video summarization models, we used the created [360Vi
 </div>
 
 ## Video summarization
-CA-SUM, PGL-SUM
+To train the PGL-SUM method and its saliency-aware variant (PGL-SUM-sal), use the 
 
 ## Annotation Tool
 To assist annotators in their task, we implemented a graphical user interface tool which facilitates easy navigation throughout the video. Users can choose fragments for inclusion in the summary with simple clicks, while there is also an option to check the selected summary video separately, before choosing the final fragments. 
