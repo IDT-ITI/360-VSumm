@@ -1,0 +1,5 @@
+python model/main.py --split_index 0 --n_epochs 600 --batch_size 32 --video_type '360VSumm'
+python model/main.py --split_index 1 --n_epochs 600 --batch_size 32 --video_type '360VSumm'
+python model/main.py --split_index 2 --n_epochs 600 --batch_size 32 --video_type '360VSumm'
+python model/main.py --split_index 3 --n_epochs 600 --batch_size 32 --video_type '360VSumm'
+python model/main.py --split_index 4 --n_epochs 600 --batch_size 32 --video_type '360VSumm'
