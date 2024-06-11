@@ -80,7 +80,7 @@ Please note that after each training epoch the algorithm performs an evaluation 
 ```shell-script
 sh /evaluation/evaluate_exp.sh i 360VSumm top_k max
 ```
-where, "i" must be the one from the part where the analysis results are stored (e.g., it should be 1 if the results are stored in ".../Summaries/360VSumm/exp1"
+where, _i_ must be the one from the directory where the analysis results are stored; i.e., it should be 1 if the results are stored in the ".../Summaries/360VSumm/exp1" directory
 
 To re-produce the reported results in Table 3 of the paper, run the above described process after setting the number of local attention mechanisms and the number of heads in the global and local attention mechanism. To set up the former two parameters, use the [configs.py](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/PGL-SUM/model/configs.py) script and update "--n_segments" and "--heads", respectively. To set up the last one, update the number of heads at the [summarizer.py](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/PGL-SUM/model/layers/summarizer.py#L34) script.
 
@@ -102,7 +102,7 @@ Please note that after each training epoch the algorithm performs an evaluation 
 ```shell-script
 sh /evaluation/evaluate_exp.sh i 360VSumm top_k max
 ```
-where, "i" must be the one from the part where the analysis results are stored (e.g., it should be 1 if the results are stored in ".../Summaries/360VSumm/exp1"
+where, _i_ must be the one from the directory where the analysis results are stored; i.e., it should be 2 if the results are stored in the ".../Summaries/360VSumm/exp2" directory
 
 To re-produce the reported results in the upper part of Table 4 of the paper, run the above described process after setting the block size equal to 60. To do this, use the [configs.py](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/CA-SUM/model/configs.py#L66) script and update "--block_size", accordingly. To re-produce the reported results in the lower part of Table 4 of the paper, run the above described process after fixing the sigma parameter in the [run_360VSumm_splits.sh](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/CA-SUM/model/run_360VSumm_splits.sh#L7C3-L7C38) shell srcipt equal to 0.7, and setting the block size as needed in [configs.py](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/CA-SUM/model/configs.py#L66).
 
