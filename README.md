@@ -51,7 +51,7 @@ The code for training and evaluating the utilized video summarization models ([P
 ## Dataset
 The created dataset contains 40 2D-videos with diverse visual content (including sports games, short movies, documentaries and underwater activites) and a duration that ranges between 1 and 4 minutes. These videos were created by applying the 2D video production algorithm from [Kontostathis et al](https://github.com/IDT-ITI/CA-SUM-360) to 40 360-degrees videos from the [VR-EyeTracking dataset](https://github.com/mtliba/ATSal/tree/master), using the ground-truth saliency maps for the videos of the VR-EyeTraking dataset, that are publicly-available [here](https://mtliba.github.io/Reproduced-VR-EyeTracking/). Please note that for 2D video production, we set the parameters *t1* (intensity), *t2* (dbscan distance), *t3* (spatial distance) and *t4* (missing frame) of the algorithm, equal to *100*, *1.5*, *85* and *60*, respectively.
 
-To train and evaluate the video summarization models, we used the created [360VSumm.h5](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/CA-SUM/data/360VSumm.h5) file, which has the following structure:
+To train and evaluate the video summarization models, we used the created [360VSumm.h5](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/data/360VSumm.h5) file, which has the following structure:
 ```Text
 /key
     /change_points            2D-array with shape (num_segments, 2), where each row stores the indices of the starting and ending frame of a video segment
@@ -66,7 +66,49 @@ To train and evaluate the video summarization models, we used the created [360VS
 </div>
 
 ## Video summarization
-To train the PGL-SUM method and its saliency-aware variant (PGL-SUM-sal), use the 
+### PGL-SUM
+To train the PGL-SUM method using the created splits of the VSumm dataset (available [here](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/data/360VSumm_splits.json) use the code within the [PGL-SUM](https://github.com/IDT-ITI/360-VSumm/tree/main/Video_Summarization/PGL-SUM) directory. Then,
+ - in [`configs.py`](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/PGL-SUM/model/configs.py), define the directory where the analysis results will be saved to. </div>
+ - in [`data_loader.py`](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/PGL-SUM/model/data_loader.py), specify the path to the h5 file of the used dataset, and the path to the JSON file containing data about the utilized data splits.
+Finally, run the following commmand:
+```shell-script
+sh /model/run_360VSumm_splits.sh
+```
+To train the saliency-aware variant of the PGL-SUM method use the [solver_sal.py](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/PGL-SUM/model/solver_sal.py) instead of the originally used [solver.py](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/PGL-SUM/model/solver.py) (e.g., temporarily rename the "solver.py" file as "solver_no_sal.py" and the "solver_sal.py" file as "solver.py") and run the aforementioned command.
+
+Please note that after each training epoch the algorithm performs an evaluation step, using the trained model to compute the importance scores for the frames of each video of the test set. These scores are then used by the provided [evaluation](https://github.com/IDT-ITI/360-VSumm/tree/main/Video_Summarization/PGL-SUM/evaluation) scripts to assess the overall performance of the model (in F-Score). To perform the evaluation, specify the path to the h5 file of the used dataset in the [compute_fscores.py](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/PGL-SUM/evaluation/compute_fscores.py) file, and run the following command:
+```shell-script
+sh /evaluation/evaluate_exp.sh i 360VSumm top_k max
+```
+where, "i" must be the one from the part where the analysis results are stored (e.g., it should be 1 if the results are stored in ".../Summaries/360VSumm/exp1"
+
+To re-produce the reported results in Table 3 of the paper, run the above described process after setting the number of local attention mechanisms and the number of heads in the global and local attention mechanism. To set up the former two parameters, use the [configs.py](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/PGL-SUM/model/configs.py) script and update "--n_segments" and "--heads", respectively. To set up the last one, update the number of heads at the [summarizer.py](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/PGL-SUM/model/layers/summarizer.py#L34) script.
+
+The progress of the training can be monitored via the TensorBoard platform and by:
+- opening a command line (cmd) and running: `tensorboard --logdir=/path/to/log-directory --host=localhost`
+- opening a browser and pasting the returned URL from cmd. </div>
+
+### CA-SUM
+To train the CA-SUM method using the created splits of the VSumm dataset (available [here](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/data/360VSumm_splits.json) use the code within the [CA-SUM](https://github.com/IDT-ITI/360-VSumm/tree/main/Video_Summarization/CA-SUM) directory. Then,
+ - in [`configs.py`](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/CA-SUM/model/configs.py), define the directory where the analysis results will be saved to. </div>
+ - in [`data_loader.py`](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/CA-SUM/model/data_loader.py), specify the path to the h5 file of the used dataset, and the path to the JSON file containing data about the utilized data splits.
+Finally, run the following commmand:
+```shell-script
+sh /model/run_360VSumm_splits.sh           # Runs the script.
+```
+To train the saliency-aware variant of the CA-SUM method use the [solver_sal.py](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/CA-SUM/model/solver_sal.py) instead of the originally used [solver.py](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/CA-SUM/model/solver.py) (e.g., temporarily rename the "solver.py" file as "solver_no_sal.py" and the "solver_sal.py" file as "solver.py") and run the aforementioned command.
+
+Please note that after each training epoch the algorithm performs an evaluation step, using the trained model to compute the importance scores for the frames of each video of the test set. These scores are then used by the provided [evaluation](https://github.com/IDT-ITI/360-VSumm/tree/main/Video_Summarization/CA-SUM/evaluation) scripts to assess the overall performance of the model (in F-Score). To perform the evaluation, specify the path to the h5 file of the used dataset in the [compute_fscores.py](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/CA-SUM/evaluation/compute_fscores.py) file, and run the following command:
+```shell-script
+sh /evaluation/evaluate_exp.sh i 360VSumm top_k max
+```
+where, "i" must be the one from the part where the analysis results are stored (e.g., it should be 1 if the results are stored in ".../Summaries/360VSumm/exp1"
+
+To re-produce the reported results in the upper part of Table 4 of the paper, run the above described process after setting the block size equal to 60. To do this, use the [configs.py](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/CA-SUM/model/configs.py#L66) script and update "--block_size", accordingly. To re-produce the reported results in the lower part of Table 4 of the paper, run the above described process after fixing the sigma parameter in the [run_360VSumm_splits.sh](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/CA-SUM/model/run_360VSumm_splits.sh#L7C3-L7C38) shell srcipt equal to 0.7, and setting the block size as needed in [configs.py](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/CA-SUM/model/configs.py#L66).
+
+As before, the progress of the training can be monitored via the TensorBoard platform and by:
+- opening a command line (cmd) and running: `tensorboard --logdir=/path/to/log-directory --host=localhost`
+- opening a browser and pasting the returned URL from cmd. </div>
 
 ## Annotation Tool
 To assist annotators in their task, we implemented a graphical user interface tool which facilitates easy navigation throughout the video. Users can choose fragments for inclusion in the summary with simple clicks, while there is also an option to check the selected summary video separately, before choosing the final fragments. 
