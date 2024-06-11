@@ -3,10 +3,10 @@ import argparse
 def args():
     parser = argparse.ArgumentParser(description='2d video production arguments')
     parser.add_argument('--saliency_maps_path', type=str,
-                        default=r"D:\Program Files\IoanProjects\Vrdata3\saliency\001",
-                        help='Directory path of saliency maps')
-    parser.add_argument('--frames_path', type=str, default=r"D:\Program Files\IoanProjects\Vrdata3\frames\001",
-                        help='Directory path of frames')
+                        default=r"D:\Program Files\IoanProjects\Vreyetracking\saliency",
+                        help='Directory path of video's saliency maps')
+    parser.add_argument('--video_frames_path', type=str, default=r"D:\Program Files\IoanProjects\Vrdata3\frames\001",
+                        help='Directory path of video's frames')
 
     parser.add_argument('--intensity_value', type=int, default=100, help='Intensity value parameter')
     parser.add_argument('--dbscan_distance', type=float, default=1.5, help='DBSCAN distance parameter')
