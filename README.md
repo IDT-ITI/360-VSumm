@@ -135,5 +135,5 @@ I. Kontostathis, E. Apostolidis, V. Mezaris, "<b>A Human-Annotated Video Dataset
 </div>
 
 # Acknowledgements
-This work was supported by the EU's Horizon Europe and Horizon 2020 programmes under grant agreements 101070109 TransMIXR and 951911 AI4Media, respectively
+This work was supported by the EU's Horizon Europe and Horizon 2020 programmes under grant agreements 101070109 TransMIXR and 951911 AI4Media, respectively.
 
