@@ -117,6 +117,7 @@ To facilitate the annotation process, we developed a tool with a user-friendly g
   <img src="annotationTool.png" alt="The graphical interface of the annotation tool" />
   <br><em>The graphical interface of the annotation tool.</em>
 </p>
+
 The software was implemented in C# and the source code is available in the [Annotation_Tool](https://github.com/IDT-ITI/360-VSumm/tree/main/Annotation_Tool) directory. Please use Visual Studio 2022 to compile the source code.
 
 # Licence
