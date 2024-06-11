@@ -94,7 +94,7 @@ To train the CA-SUM method using the created splits of the VSumm dataset (availa
  - in [`data_loader.py`](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/CA-SUM/model/data_loader.py), specify the path to the h5 file of the used dataset, and the path to the JSON file containing data about the utilized data splits.
 Finally, run the following commmand:
 ```shell-script
-sh /model/run_360VSumm_splits.sh           # Runs the script.
+sh /model/run_360VSumm_splits.sh 
 ```
 To train the saliency-aware variant of the CA-SUM method use the [solver_sal.py](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/CA-SUM/model/solver_sal.py) instead of the originally used [solver.py](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/CA-SUM/model/solver.py) (e.g., temporarily rename the "solver.py" file as "solver_no_sal.py" and the "solver_sal.py" file as "solver.py") and run the aforementioned command.
 
