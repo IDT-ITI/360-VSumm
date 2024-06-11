@@ -51,6 +51,14 @@ The code for training and evaluating the utilized video summarization models ([P
 ## Dataset
 The created dataset contains 40 2D-videos with diverse visual content (including sports games, short movies, documentaries and underwater activites) and a duration that ranges between 1 and 4 minutes. These videos were created by applying the 2D video production algorithm from [Kontostathis et al](https://github.com/IDT-ITI/CA-SUM-360) to [40 360-degrees videos](https://github.com/IDT-ITI/360-VSumm/blob/main/2D_Video_Production/Selected_videos_VR-EyeTracking.txt) from the [VR-EyeTracking dataset](https://github.com/mtliba/ATSal/tree/master), using the ground-truth saliency maps for the videos of the VR-EyeTraking dataset, that are publicly-available [here](https://mtliba.github.io/Reproduced-VR-EyeTracking/). Please note that for 2D video production, we set the parameters *t1* (intensity), *t2* (dbscan distance), *t3* (spatial distance) and *t4* (missing frame) of the algorithm, equal to *100*, *1.5*, *85* and *60*, respectively.
 
+To reproduce the 40 videos, download the VR-EyeTracking dataset. Then, to extract the ERP frames for each video use the [frames_extractor.py](https://github.com/IDT-ITI/360-VSumm/blob/main/2D_Video_Production/frames_extractor.py) script and run the following command:
+```
+python frames_extractor.py --path_to_videos "PATH/path_containing_the_VR-EyeTracking_360_videos" --output_folder "PATH/path_to_save_erp_frames_for_each_video"
+```
+Given the extracted saliency maps and the frames for the videos of the VR-EyeTracking, to produced the conventional 40 2D videos, use the [main.py](https://github.com/IDT-ITI/360-VSumm/blob/main/2D_Video_Production/main.py) script and run the following command:
+```
+python main.py --video_frames_path "PATH/path_to_VrEyeTracking\frames" --saliency_maps_path "PATH/path_to_VrEyeTracking\saliency" --intensity_value 100 --dbscan_distance 1.5 --spatial_distance 85 --fill_loss 60
+```
 To train and evaluate the video summarization models, we used the created [360VSumm.h5](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/data/360VSumm.h5) file, which has the following structure:
 ```Text
 /key
