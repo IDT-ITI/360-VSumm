@@ -82,7 +82,7 @@ sh /evaluation/evaluate_exp.sh i 360VSumm top_k max
 ```
 where, _i_ must be the one from the directory where the analysis results are stored; i.e., it should be 1 if the results are stored in the ".../Summaries/360VSumm/exp1" directory
 
-To re-produce the reported results in Table 3 of the paper, run the above described process after setting the number of local attention mechanisms and the number of heads in the global and local attention mechanism. To set up the former two parameters, use the [configs.py](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/PGL-SUM/model/configs.py) script and update "--n_segments" and "--heads", respectively. To set up the last one, update the number of heads at the [summarizer.py](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/PGL-SUM/model/layers/summarizer.py#L34) script.
+To re-produce the reported results in Table 3 of the paper, run the above described process after setting the number of local attention mechanisms and the number of heads in the global and local attention mechanism. To set up the former two parameters, use the [configs.py](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/PGL-SUM/model/configs.py) script and update the "--n_segments" and "--heads", respectively. To set up the last one, update the number of heads at the [summarizer.py](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/PGL-SUM/model/layers/summarizer.py#L34) script.
 
 The progress of the training can be monitored via the TensorBoard platform and by:
 - opening a command line (cmd) and running: `tensorboard --logdir=/path/to/log-directory --host=localhost`
