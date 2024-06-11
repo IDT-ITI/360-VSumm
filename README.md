@@ -67,7 +67,7 @@ To train and evaluate the video summarization models, we used the created [360VS
 
 ## Video summarization
 ### PGL-SUM
-To train the PGL-SUM method using the created splits of the VSumm dataset (available [here](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/data/360VSumm_splits.json) use the code within the [PGL-SUM](https://github.com/IDT-ITI/360-VSumm/tree/main/Video_Summarization/PGL-SUM) directory. Then,
+To train the PGL-SUM method using the created splits of the VSumm dataset (available [here](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/data/360VSumm_splits.json)) use the code within the [PGL-SUM](https://github.com/IDT-ITI/360-VSumm/tree/main/Video_Summarization/PGL-SUM) directory. Then,
  - in [`configs.py`](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/PGL-SUM/model/configs.py), define the directory where the analysis results will be saved to. </div>
  - in [`data_loader.py`](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/PGL-SUM/model/data_loader.py), specify the path to the h5 file of the used dataset, and the path to the JSON file containing data about the utilized data splits.
 Finally, run the following commmand:
@@ -89,7 +89,7 @@ The progress of the training can be monitored via the TensorBoard platform and b
 - opening a browser and pasting the returned URL from cmd. </div>
 
 ### CA-SUM
-To train the CA-SUM method using the created splits of the VSumm dataset (available [here](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/data/360VSumm_splits.json) use the code within the [CA-SUM](https://github.com/IDT-ITI/360-VSumm/tree/main/Video_Summarization/CA-SUM) directory. Then,
+To train the CA-SUM method using the created splits of the VSumm dataset (available [here](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/data/360VSumm_splits.json)) use the code within the [CA-SUM](https://github.com/IDT-ITI/360-VSumm/tree/main/Video_Summarization/CA-SUM) directory. Then,
  - in [`configs.py`](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/CA-SUM/model/configs.py), define the directory where the analysis results will be saved to. </div>
  - in [`data_loader.py`](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/CA-SUM/model/data_loader.py), specify the path to the h5 file of the used dataset, and the path to the JSON file containing data about the utilized data splits.
 Finally, run the following commmand:
