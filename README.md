@@ -55,7 +55,7 @@ To reproduce the 40 videos, download the VR-EyeTracking dataset. Then, to extrac
 ```
 python frames_extractor.py --path_to_videos "PATH/path_containing_the_VR-EyeTracking_360_videos" --output_folder "PATH/path_to_save_erp_frames_for_each_video"
 ```
-Given the frames for the videos of the VR-EyeTracking, to produce the conventional 40 2D videos, use the [main.py](https://github.com/IDT-ITI/360-VSumm/blob/main/2D_Video_Production/create360-VSumm.py) script and run the following command:
+Given the frames for the videos of the VR-EyeTracking, to produce the conventional 40 2D videos, use the [create360-VSumm.py](https://github.com/IDT-ITI/360-VSumm/blob/main/2D_Video_Production/create360-VSumm.py) script and run the following command:
 ```
 python create360-VSumm.py "path_to_extracted_frames_of_each_video"
 ```
