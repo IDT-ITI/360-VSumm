@@ -55,9 +55,9 @@ To reproduce the 40 videos, download the VR-EyeTracking dataset. Then, to extrac
 ```
 python frames_extractor.py --path_to_videos "PATH/path_containing_the_VR-EyeTracking_360_videos" --output_folder "PATH/path_to_save_erp_frames_for_each_video"
 ```
-Given the extracted saliency maps and the frames for the videos of the VR-EyeTracking, to produce the conventional 40 2D videos, use the [main.py](https://github.com/IDT-ITI/360-VSumm/blob/main/2D_Video_Production/main.py) script and run the following command:
+Given the frames for the videos of the VR-EyeTracking, to produce the conventional 40 2D videos, use the [main.py](https://github.com/IDT-ITI/360-VSumm/blob/main/2D_Video_Production/create360-VSumm.py) script and run the following command:
 ```
-python main.py --video_frames_path "PATH/path_to_VrEyeTracking\frames" --saliency_maps_path "PATH/path_to_VrEyeTracking\saliency" --intensity_value 100 --dbscan_distance 1.5 --spatial_distance 85 --fill_loss 60
+python create360-VSumm.py "path_to_extracted_frames_of_each_video"
 ```
 To train and evaluate the video summarization models, we used the created [360VSumm.h5](https://github.com/IDT-ITI/360-VSumm/blob/main/Video_Summarization/data/360VSumm.h5) file, which has the following structure:
 ```Text
